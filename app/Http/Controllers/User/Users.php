@@ -203,6 +203,7 @@ class Users extends Controller
             'email'   => $userToLogin->email,
             'roles'   => $userToLogin->getRoleNames(),
             'opd'     => optional($userToLogin->master_pegawai)->opd,
+            'bidang'     => optional($userToLogin->master_pegawai)->unit_kerja,
         ]);
 
         return redirect()->route('dashboard')

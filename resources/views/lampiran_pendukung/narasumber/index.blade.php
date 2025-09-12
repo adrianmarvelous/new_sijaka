@@ -11,6 +11,7 @@
                 {{-- Form to filter by month --}}
                 <form action="{{ route('lampiran_narasumber.index') }}" method="GET">
                     <select class="form-select" name="bulan" onchange="this.form.submit()">
+                            <option value="" selected disabled>Pilih Bulan</option>
                         @for($m = 1; $m <= 12; $m++)
                             <option value="{{ $m }}" {{ request('bulan') == $m ? 'selected' : '' }}>
                                 {{ DateTime::createFromFormat('!m', $m)->format('F') }}

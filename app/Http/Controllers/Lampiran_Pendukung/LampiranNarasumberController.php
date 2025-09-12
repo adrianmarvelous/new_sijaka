@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Lampiran_Pendukung;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Lampiran_Pendukung\Narasumber\narsum_daftar_hadir_header;
+use PhpParser\Node\Stmt\Foreach_;
 
 class LampiranNarasumberController extends Controller
 {
@@ -14,6 +16,12 @@ class LampiranNarasumberController extends Controller
     {
         // Get the month from query parameter, default to current month if not provided
         $bulan = $request->query('bulan', date('n'));
+        // $narsum_daftar_hadir_header = narsum_daftar_hadir_header::where('pptk','198103142009021002')->get();
+        // dd($narsum_daftar_hadir_header);
+        narsum_daftar_hadir_header::where('pptk', '196703191992021001')
+                                    ->update(['bidang' => 'Bidang Pengelolaan Administrasi dan Informasi Kepegawaian']);
+
+        // dd(session()->all());
 
         return view('lampiran_pendukung.narasumber.index', compact('bulan'));
 }
