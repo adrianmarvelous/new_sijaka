@@ -50,7 +50,7 @@ use Illuminate\Support\Str;
 
                                 <td>{{ $label }}</td>
                                 <td>
-                                    <a class="btn btn-primary" href="{{ route('users.login_user',['id' => $item->id]) }}">Login</a>
+                                    <a class="btn btn-primary" href="{{ route('users.impersonate',['id' => $item->id]) }}">Login</a>
                                 </td>
                             </tr>
                         @endforeach

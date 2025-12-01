@@ -39,28 +39,31 @@
 
     <link rel="stylesheet" href="{{ asset('templetes/kaiadmin-lite/assets/css/demo.css') }}" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.css" rel="stylesheet">
 </head>
 
 <body>
-    @if(session('success'))
-<script>
-    Swal.fire({
-        icon: 'success',
-        title: 'Success',
-        text: "{{ session('success') }}",
-    });
-</script>
-@endif
+    @if ($errors->any())
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                html: `{!! implode('<br>', $errors->all()) !!}`
+            });
+        </script>
+    @endif
 
-@if(session('error'))
-<script>
-    Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: "{{ session('error') }}",
-    });
-</script>
-@endif
+    @if (session('alert'))
+        <script>
+            Swal.fire({
+                icon: "{{ session('alert.type') }}",
+                title: "{{ ucfirst(session('alert.type')) }}",
+                text: "{{ session('alert.message') }}",
+            });
+        </script>
+    @endif
+
 
     {{-- @php
         dd(session()->all());
@@ -73,8 +76,9 @@
                 <!-- Logo Header -->
                 <div class="logo-header" data-background-color="dark">
                     <a href="index.html" class="logo">
-                        <img src="assets/img/kaiadmin/logo_light.svg" alt="navbar brand" class="navbar-brand"
-                            height="20" />
+                        {{-- <img src="{{ asset('templetes/kaiadmin-lite/assets/img/kaiadmin/logo_light.svg') }}" alt="navbar brand" class="navbar-brand"
+                            height="20" /> --}}
+                            <h1 class="text-white p-5">Sijaka</h1>
                     </a>
                     <div class="nav-toggle">
                         <button class="btn btn-toggle toggle-sidebar">
@@ -113,7 +117,7 @@
                             <span class="sidebar-mini-icon">
                                 <i class="fa fa-ellipsis-h"></i>
                             </span>
-                            <h4 class="text-section">Manu</h4>
+                            <h4 class="text-section">Menu</h4>
                         </li>
                         @php
                             $menus = collect();
@@ -206,7 +210,7 @@
                     <!-- Logo Header -->
                     <div class="logo-header" data-background-color="dark">
                         <a href="index.html" class="logo">
-                            <img src="assets/img/kaiadmin/logo_light.svg" alt="navbar brand" class="navbar-brand"
+                            <img src="{{ asset('templetes/kaiadmin-lite/assets/img/kaiadmin/logo_light.svg') }}" alt="navbar brand" class="navbar-brand"
                                 height="20" />
                         </a>
                         <div class="nav-toggle">
@@ -271,7 +275,7 @@
                                             <div class="notif-center">
                                                 <a href="#">
                                                     <div class="notif-img">
-                                                        <img src="assets/img/jm_denis.jpg" alt="Img Profile" />
+                                                        <img src="{{ asset('templetes/kaiadmin-lite/assets/img/jm_denis.jpg') }}" alt="Img Profile" />
                                                     </div>
                                                     <div class="notif-content">
                                                         <span class="subject">Jimmy Denis</span>
@@ -281,7 +285,7 @@
                                                 </a>
                                                 <a href="#">
                                                     <div class="notif-img">
-                                                        <img src="assets/img/chadengle.jpg" alt="Img Profile" />
+                                                        <img src="{{ asset('templetes/kaiadmin-lite/assets/img/chadengle.jpg') }}" alt="Img Profile" />
                                                     </div>
                                                     <div class="notif-content">
                                                         <span class="subject">Chad</span>
@@ -291,7 +295,7 @@
                                                 </a>
                                                 <a href="#">
                                                     <div class="notif-img">
-                                                        <img src="assets/img/mlane.jpg" alt="Img Profile" />
+                                                        <img src="{{ asset('templetes/kaiadmin-lite/assets/img/mlane.jpg') }}" alt="Img Profile" />
                                                     </div>
                                                     <div class="notif-content">
                                                         <span class="subject">Jhon Doe</span>
@@ -303,7 +307,7 @@
                                                 </a>
                                                 <a href="#">
                                                     <div class="notif-img">
-                                                        <img src="assets/img/talha.jpg" alt="Img Profile" />
+                                                        <img src="{{ asset('templetes/kaiadmin-lite/assets/img/talha.jpg') }}" alt="Img Profile" />
                                                     </div>
                                                     <div class="notif-content">
                                                         <span class="subject">Talha</span>
@@ -358,7 +362,7 @@
                                                 </a>
                                                 <a href="#">
                                                     <div class="notif-img">
-                                                        <img src="assets/img/profile2.jpg" alt="Img Profile" />
+                                                        <img src="{{ asset('templetes/kaiadmin-lite/assets/img/profile2.jpg') }}" alt="Img Profile" />
                                                     </div>
                                                     <div class="notif-content">
                                                         <span class="block">
@@ -617,6 +621,20 @@
             lineColor: "#ffa534",
             fillColor: "rgba(255, 165, 52, .14)",
         });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.js"></script>
+    <script>
+      $(function () {
+        $('#summernote').summernote({
+          height: 200,
+          toolbar: [
+            ['style', ['bold', 'italic', 'underline', 'clear']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['insert', ['table']],
+            ['view', ['codeview']]
+          ]
+        });
+      });
     </script>
 </body>
 

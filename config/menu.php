@@ -17,9 +17,17 @@ return [
             ],
         ],
         [
-            'name'  => 'Test',
-            'icon'  => 'users',
+            'name'  => 'Super Admin',
+            'icon'  => 'key',
             'children' => [
+                [
+                    'name'  => 'Upload Excel to Table',
+                    'route' => ['upload_excel.index'], // No params
+                ],
+                [
+                    'name'  => 'List API',
+                    'route' => ['list_api.index'], // No params
+                ],
                 [
                     'name'  => 'Test Page',
                     'route' => ['test.index'], // No params
@@ -29,6 +37,16 @@ return [
     ],
 
     'admin' => [
+        [
+            'name'  => 'Setting OPD',
+            'icon'  => 'gear',
+            'children' => [
+                [
+                    'name'  => 'Bidang',
+                    'route' => ['setting_opd.index'], // No params
+                ],
+            ],
+        ],
         [
             'name'  => 'Login User',
             'icon'  => 'users',
