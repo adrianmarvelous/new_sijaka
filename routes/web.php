@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\UploadExcel;
 use App\Http\Controllers\Admin\ListApi;
 use App\Http\Controllers\Admin\SettingOpdController;
 use App\Http\Controllers\PrintController;
+use App\Http\Controllers\Spj\NppNpdController;
 
 // Route::get('/', function () {
 //     return view('dashboard');
@@ -72,6 +73,13 @@ Route::middleware(['auth'])->prefix('dashboard')->group(function () {
         Route::post('lampiran_pendukung/lampiran_narasumber/hapus_peserta', [LampiranNarasumberController::class, 'hapus_peserta'])->name('lampiran_narasumber.hapus_peserta');
         Route::post('lampiran_pendukung/lampiran_narasumber/tambah_peserta', [LampiranNarasumberController::class, 'tambah_peserta'])->name('lampiran_narasumber.tambah_peserta');
 
+
+        Route::resource('npp_npd', NppNpdController::class);
+        Route::get('npp_npd/buat_nppnpd', [NppNpdController::class, 'buat_nppnpd'])->name('npp_npd.buat_nppnpd');
+        Route::get('npp_npd/buat_nppnpd/npp_npd_temp', [NppNpdController::class, 'npp_npd_temp'])->name('npp_npd.npp_npd_temp');
+        Route::get('npp_npd/buat_nppnpd/pilih_paket/{id_sub}/{npp_npd_kkpd}', [NppNpdController::class, 'pilih_paket'])->name('npp_npd.pilih_paket');
+        Route::get('npp_npd/buat_nppnpd/pilih_rekening', [NppNpdController::class, 'pilih_rekening'])->name('npp_npd.pilih_rekening');
+        Route::get('npp_npd/buat_nppnpd/tambah_paket', [NppNpdController::class, 'tambah_paket'])->name('npp_npd.tambah_paket');
         
         Route::get('narasumber/saran_masukan/{id}', [PrintController::class, 'saran_masukan'])->name('print_narasumber.saran_masukan');
     });

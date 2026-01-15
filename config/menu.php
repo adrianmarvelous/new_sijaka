@@ -120,5 +120,15 @@ return [
                 ],
             ],
         ],
+        [
+            'name'  => 'SPJ',
+            'icon'  => 'file',
+            'children' => [
+                [
+                    'name'  => 'NPP - NPD',
+                    'route' => ['npp_npd.index'],
+                ],
+            ],
+        ],
     ],
 ];

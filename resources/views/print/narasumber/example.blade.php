@@ -46,7 +46,8 @@
         </tr>
         <tr>
             <td style="width: 50%"></td>
-            <td style="width: 50%;text-align:center">{{ $data->master_narasumber->spesimen }}</td>
+            {{-- <td style="width: 50%;text-align:center">{{ $data->master_narasumber->spesimen }}</td> --}}
+            <td style="width: 50%;text-align:center"><img src="{{ asset('storage/upload/master/narasumber/spesimen/'.$data->master_narasumber->spesimen) }}" alt=""></td>
         </tr>
         <tr>
             <td style="width: 50%"></td>

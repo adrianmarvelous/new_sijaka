@@ -27,14 +27,13 @@ class User_Ws extends Controller
             $data = $response->json();
             
             foreach ($data as $key => $value) {
-                $user = Master_pegawai::where('nik', $value['nik'])->first();
+                $user = Master_pegawai::where('nip', $value['nip'])->first();
                 Master_pegawai::updateOrCreate(
-                    ['nik' => $value['nik']], // condition to check
+                    ['nip' => $value['nip']], // condition to check
                     [
                         'opd' => $value['opd'],
                         'kategori' => $value['kategori'],
                         'nama' => $value['nama'],
-                        'nip' => $value['nip'],
                         'unit_kerja' => $value['unit_kerja'],
                         'jabatan' => $value['jabatan'],
                         'jenis_kelamin' => $value['jenis_kelamin'],

@@ -5,6 +5,7 @@
         <div class="card shadow p-3">
             <h1 class="text-center">User Web Service</h1>
             <div class="d-flex justify-content-end">
+                <a class="btn btn-primary m-3" href="">Update Semua</a>
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Update WS

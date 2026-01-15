@@ -28,9 +28,11 @@ class LampiranNarasumberController extends Controller
         $bulan = $request->query('bulan', date('n'));
         $tahun = $request->query('tahun', date('Y'));
         $bidang = session('bidang');
+        $opd = session('opd');
         $narsum_daftar_hadir_header = narsum_daftar_hadir_header::whereMonth('tanggal', $bulan)
             ->whereYear('tanggal', $tahun)
             ->where('bidang', $bidang)
+            ->where('opd', $opd)
             ->get();
         // dd($narsum_daftar_hadir_header);
 

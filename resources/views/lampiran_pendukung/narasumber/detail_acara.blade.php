@@ -168,7 +168,7 @@
                                     <td>{{ $cn->master_narasumber->instansi }}</td>
                                     <td>{{ $cn->no_surat }}</td>
                                     <td>{{ $cn->id_transaksi }}</td>
-                                    <td>{!! html_entity_decode($cn->masukan) !!}</td>
+                                    <td>{!! html_entity_decode($cn->masukan) !!}<img src="{{ asset('storage/upload/master/narasumber/spesimen/'.$cn->master_narasumber->spesimen) }}" alt=""></td>
 
                                     <td>
                                         <div class="d-flex flex-column">
